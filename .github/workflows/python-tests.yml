@@ -9,9 +9,7 @@ on:
   push:
   pull_request:
   schedule:
-    # The cron syntax '0 0 * * *' means: 
-    # Minute: 0, Hour: 0 (midnight UTC), Day: *, Month: *, Day of week: *
-    # This runs the workflow automatically once every day at midnight UTC.
+    # '0 0 * * *' means: Minute 0, Hour 0 (Midnight UTC), Every Day, Every Month, Every Day of the week.
     - cron: '0 0 * * *'
 
 jobs:
