@@ -1,0 +1,29 @@
+# Name: Sharlene Kasingu
+# Date: September 23, 2026
+# Filename: tests.yml
+
+name: Python CI Pipeline
+
+# Trigger the workflow on every push
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run Pytest test suite
+        run: pytest -v
