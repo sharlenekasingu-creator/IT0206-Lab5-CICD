@@ -1,0 +1,4 @@
+# requirements.txt
+pytest
+# Add any other dependencies your Topic8_4_d.py tests require below this line
+# Example: requests

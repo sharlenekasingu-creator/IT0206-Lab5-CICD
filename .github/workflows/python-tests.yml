@@ -9,7 +9,7 @@ on:
   push:
   pull_request:
   schedule:
-    # '0 0 * * *' means: Minute 0, Hour 0 (Midnight UTC), Every Day, Every Month, Every Day of the week.
+    # Runs automatically once every day at midnight UTC
     - cron: '0 0 * * *'
 
 jobs:
@@ -26,7 +26,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pytest
+        # This command reads the requirements.txt file and installs everything listed in it
+        run: pip install -r requirements.txt
 
       - name: Run Pytest test suite
+        # pytest automatically discovers and runs all test_*.py files in the directory
         run: pytest -v
