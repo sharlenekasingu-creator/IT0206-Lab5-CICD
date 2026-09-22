@@ -1,0 +1,31 @@
+# Name: Sharlene Kasingu
+# Date: September 22, 2026
+# Filename: Topic8_5_p.yml
+
+name: Python CI Pipeline
+
+# Trigger this workflow on push to the main and develop branches
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest   # Virtual machine environment used to run the job
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Pytest test suite
+        run: pytest -v
