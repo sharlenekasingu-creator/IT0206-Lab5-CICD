@@ -1,8 +1,18 @@
-# .github/workflows/python-tests.yml
+# Name: Sharlene Kasingu
+# Date: September 18, 2026
+# Filename: python-tests.yml
+
 name: Python Test Suite
 
-# Trigger this workflow on every push and pull request
-on: [push, pull_request]
+# Trigger this workflow on push, pull requests, AND on a daily schedule
+on:
+  push:
+  pull_request:
+  schedule:
+    # The cron syntax '0 0 * * *' means: 
+    # Minute: 0, Hour: 0 (midnight UTC), Day: *, Month: *, Day of week: *
+    # This runs the workflow automatically once every day at midnight UTC.
+    - cron: '0 0 * * *'
 
 jobs:
   test:
